@@ -7,6 +7,8 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
+import com.nyx.crade.playground.JPA_FB_Demo.entity.FbPost;
+
 public class PostManager {
 	protected SessionFactory sessionFactory;
 
@@ -18,6 +20,16 @@ public class PostManager {
 
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
+		session.getTransaction().commit();
+		session.close();
+	}
+
+	protected void create(FbPost post) {
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+
+		session.save(post);
+
 		session.getTransaction().commit();
 		session.close();
 	}

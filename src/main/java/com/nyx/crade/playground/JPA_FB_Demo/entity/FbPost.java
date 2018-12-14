@@ -1,24 +1,23 @@
 package com.nyx.crade.playground.JPA_FB_Demo.entity;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class FbPost {
 
-	private int id;
+	private String id;
 	private String message;
+	private String created_time;
+	private transient Object paging;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setId(String Id) {
+		this.id = Id;
 	}
 
 	public String getMessage() {
@@ -27,6 +26,14 @@ public class FbPost {
 
 	public void setMessage(String message) {
 		this.message = message;
+	}
+
+	public String getCreated_time() {
+		return created_time;
+	}
+
+	public void setCreated_time(String created_time) {
+		this.created_time = created_time;
 	}
 
 }
